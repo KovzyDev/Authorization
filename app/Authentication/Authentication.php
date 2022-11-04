@@ -2,14 +2,12 @@
 namespace App\Authentication;
 
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class Authentication
 {
-    protected $redirectTo = RouteServiceProvider::HOME;
     // providers
     protected $providers = [
         'facebook', 'google',
