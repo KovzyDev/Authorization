@@ -25,8 +25,6 @@ RUN composer install \
 
 FROM php:${PHP_VERSION}-cli-buster
 
-LABEL maintainer="Seyed Morteza Ebadi <seyed.me720@gmail.com>"
-
 ARG WWWUSER=1000
 ARG WWWGROUP=1000
 ARG TZ=UTC
