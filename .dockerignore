@@ -21,3 +21,5 @@ phpunit.xml
 tests
 storage/clockwork
 bootstrap/cache/*.php
+k8s.yaml
+cloudbuild.yaml
