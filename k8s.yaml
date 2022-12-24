@@ -22,7 +22,6 @@ spec:
     matchLabels:
       app: auth-backend  # has to match .spec.template.metadata.labels
       namespace: msvc
-  serviceName: auth-backen
   replicas: 1
   template:
     metadata:
