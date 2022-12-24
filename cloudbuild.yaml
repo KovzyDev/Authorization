@@ -1,7 +1,15 @@
 steps:
+  # pull the last container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["pull", "europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest"]
   # build the container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest", "."]
+  args: [
+    "build",
+    "-t", "europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest",
+    "--cache-from", "europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest"
+    "."
+  ]
   # push container image
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest"]
