@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-backend
+  namespace: msvc
+spec:
+  ports:
+    - port: 9000
+      name: auth-backend
+  clusterIP: None
+  selector:
+    app: auth-backend
+    namespace: msvc
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -8,6 +22,7 @@ spec:
     matchLabels:
       app: auth-backend  # has to match .spec.template.metadata.labels
       namespace: msvc
+  serviceName: auth-backend
   replicas: 1
   template:
     metadata:
