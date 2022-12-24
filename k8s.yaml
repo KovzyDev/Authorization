@@ -13,7 +13,7 @@ spec:
     namespace: msvc
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: auth-backend
   namespace: msvc
@@ -22,7 +22,7 @@ spec:
     matchLabels:
       app: auth-backend  # has to match .spec.template.metadata.labels
       namespace: msvc
-  serviceName: auth-backend
+  serviceName: auth-backen
   replicas: 1
   template:
     metadata:
@@ -40,7 +40,7 @@ spec:
           resources:
             limits:
               cpu: 500m
-              memory: 2Gi
+              memory: 512Mi
             requests:
               cpu: 10m
-              memory: 50Mi
+              memory: 32Mi
