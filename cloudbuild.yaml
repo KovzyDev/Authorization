@@ -19,5 +19,6 @@ steps:
   args:
   - run
   - --filename=k8s.yaml
+  - --image=europe-docker.pkg.dev/kovzy-322715/prod/auth-backend:latest
   - --location=europe-west3
   - --cluster=kovzy-prod
