@@ -6,6 +6,7 @@ metadata:
 spec:
   ports:
     - port: 9000
+      targetPort: 9000
       name: auth-backend
   clusterIP: None
   selector:
