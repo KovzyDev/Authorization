@@ -31,6 +31,7 @@ ARG TZ=UTC
 
 # Accepted values: app - horizon - scheduler
 ARG CONTAINER_MODE=app
+ARG APP_ENV=production
 
 ARG APP_WITH_HORIZON=false
 ARG APP_WITH_SCHEDULER=false
@@ -274,6 +275,10 @@ RUN apt-get clean \
 
 COPY . .
 COPY --from=vendor ${ROOT}/vendor vendor
+
+RUN if [ ${APP_ENV} = 'production' ]; then \
+    mv .env.prod .env \
+  fi
 
 RUN mkdir -p \
   storage/framework/{sessions,views,cache} \
