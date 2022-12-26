@@ -277,7 +277,7 @@ COPY . .
 COPY --from=vendor ${ROOT}/vendor vendor
 
 RUN if [ ${APP_ENV} = 'production' ]; then \
-    mv .env.prod .env \
+    mv .env.prod .env; \
   fi
 
 RUN mkdir -p \
